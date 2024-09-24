@@ -14,8 +14,9 @@ func Handlers() {
 	http.Handle("/templates/",
 		http.StripPrefix("/templates", http.FileServer(http.Dir("./templates/"))))
 
-	rtr.HandleFunc("/", service.SignIn)       // обработчик страницы авторизации
-	rtr.HandleFunc("/SignUp", service.SignUp) // обработчик страницы регистрации
+	rtr.HandleFunc("/", service.SignIn).Methods("GET")       // обработчик страницы авторизации
+	rtr.HandleFunc("/signUp", service.SignUp).Methods("GET") // обработчик страницы регистрации
+	rtr.HandleFunc("/strong", service.Index).Methods("GET")
 
 	http.Handle("/", rtr) // все обраоботчики через роутер
 
