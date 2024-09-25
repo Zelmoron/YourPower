@@ -20,6 +20,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(id)
 	} else {
 		http.Redirect(w, r, "http://127.0.0.1:8080/", http.StatusSeeOther)
+
 	}
 
 }

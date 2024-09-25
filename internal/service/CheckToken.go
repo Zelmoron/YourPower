@@ -30,7 +30,6 @@ func CheckToken(r *http.Request) (bool, string) {
 		return false, ""
 	}
 
-	fmt.Println(tokenS)
 	token, err := jwt.Parse(tokenS, func(t *jwt.Token) (interface{}, error) {
 		return []byte("very-secret-key"), nil
 	})
@@ -51,6 +50,5 @@ func CheckToken(r *http.Request) (bool, string) {
 
 	}
 
-	log.Printf("User roles: %v", id)
 	return true, id
 }

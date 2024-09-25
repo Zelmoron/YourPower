@@ -9,6 +9,7 @@ import (
 func SignIn(w http.ResponseWriter, r *http.Request) {
 	flag, _ := CheckToken(r)
 	if flag {
+
 		http.Redirect(w, r, "http://127.0.0.1:8080/index", http.StatusSeeOther)
 	} else {
 		tmpl, err := template.ParseFiles("templates/html/autorization.html")
